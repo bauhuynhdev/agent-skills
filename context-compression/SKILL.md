@@ -7,6 +7,22 @@ description: This skill should be used when the user asks to "compress context",
 
 When agent sessions generate millions of tokens of conversation history, compression becomes mandatory. The naive approach is aggressive compression to minimize tokens per request. The correct optimization target is tokens per task: total tokens consumed to complete a task, including re-fetching costs when compression loses critical information.
 
+## Output Contract
+
+When this skill is executed to produce a compressed handoff or summary, it must always write the result to a file under the repository root `plans/` directory.
+
+Filename requirements:
+- Use the pattern `{short-context-english}-{YYYYMMDDHHmmss}`
+- `short-context-english` must be a concise English slug describing the compressed context
+- `YYYYMMDDHHmmss` must be the current local timestamp at write time
+- Do not replace this file output with inline-only delivery
+
+Output requirements:
+- Ensure the `plans/` directory exists before writing
+- Keep the body content in the skill's existing language unless the user requests otherwise
+- Write a self-contained artifact that another agent can continue from without reopening the full conversation
+- Include enough file, decision, and next-step detail to preserve continuity
+
 ## When to Activate
 
 Activate this skill when:
@@ -218,9 +234,10 @@ The structured response preserves endpoint, error code, and root cause. The aggr
 3. Trigger compression at 70-80% context utilization
 4. Implement incremental merging rather than full regeneration
 5. Test compression quality with probe-based evaluation
-6. Track artifact trail separately if file tracking is critical
-7. Accept slightly lower compression ratios for better quality retention
-8. Monitor re-fetching frequency as a compression quality signal
+6. Persist every final compressed summary to `plans/{short-context-english}-{YYYYMMDDHHmmss}`
+7. Track artifact trail separately if file tracking is critical
+8. Accept slightly lower compression ratios for better quality retention
+9. Monitor re-fetching frequency as a compression quality signal
 
 ## Gotchas
 
