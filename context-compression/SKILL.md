@@ -16,6 +16,29 @@ Activate this skill when:
 - Debugging cases where agents "forget" what files they modified
 - Building evaluation frameworks for compression quality
 
+## Output Contract
+
+When this skill is executed to produce a compressed context artifact, always write the result to a Markdown file in the repository root `plans/` directory.
+
+Use this filename pattern exactly:
+
+```text
+{short-context-english}-{YYYYMMDDHHmmss}.md
+```
+
+Rules:
+- `short-context-english` must be a short English slug that describes the compressed context artifact
+- `YYYYMMDDHHmmss` must use the execution timestamp in local session time
+- The output must be a `.md` file
+- Keep the skill's written language unchanged; do not rewrite this skill through `skill-creator`
+- If `plans/` does not exist yet, create it at the repository root before writing the artifact
+
+Example:
+
+```text
+auth-debug-summary-20260403220511.md
+```
+
 ## Core Concepts
 
 Context compression trades token savings against information loss. Select from three production-ready approaches based on session characteristics:
@@ -267,6 +290,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-22
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-04-03
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 1.2.0
+**Version**: 1.3.0
