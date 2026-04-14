@@ -185,3 +185,7 @@ lobehub/
 ```
 React UI → Store Actions → Client Service → TRPC Lambda → Server Services → DB Model → PostgreSQL
 ```
+
+## Export Requirement
+
+When using this skill, export the generated overview to `PROJECT-OVERVIEW.md` in the target project's root directory. If the file does not exist, create it. If it already exists, overwrite it with the new content.
