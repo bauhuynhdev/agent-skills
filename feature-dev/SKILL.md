@@ -1,4 +1,5 @@
 ---
+name: feature-dev
 description: Guided feature development with codebase understanding and architecture focus
 argument-hint: Optional feature description
 ---
@@ -23,7 +24,7 @@ Before running any phase-specific agent workflow, explicitly read these referenc
 - `references/code-architect.md`: use for all architecture design work
 - `references/code-reviewer.md`: use for all quality review work
 
-These files are part of this skill's operating instructions. Do not treat `code-explorer`, `code-architect`, and `code-reviewer` as abstract labels only. They map directly to the reference files above and should be loaded before launching or simulating those roles.
+These files are part of this skill's operating instructions. Do not treat `code-explorer`, `code-architect`, and `code-reviewer` as abstract labels only. They map directly to    the reference files above and should be loaded before launching or simulating those roles.
 
 ---
 
