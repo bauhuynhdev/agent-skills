@@ -16,16 +16,6 @@ You are helping a developer implement a new feature. Follow a systematic approac
 - **Simple and elegant**: Prioritize readable, maintainable, architecturally sound code
 - **Use TodoWrite**: Track all progress throughout
 
-## Required Reference Files
-
-Before running any phase-specific agent workflow, explicitly read these reference files from `references/` and follow their instructions:
-
-- `references/code-explorer.md`: use for all code exploration and implementation tracing work
-- `references/code-architect.md`: use for all architecture design work
-- `references/code-reviewer.md`: use for all quality review work
-
-These files are part of this skill's operating instructions. Do not treat `code-explorer`, `code-architect`, and `code-reviewer` as abstract labels only. They map directly to    the reference files above and should be loaded before launching or simulating those roles.
-
 ---
 
 ## Phase 1: Discovery
@@ -49,8 +39,7 @@ Initial request: $ARGUMENTS
 **Goal**: Understand relevant existing code and patterns at both high and low levels
 
 **Actions**:
-1. Read `references/code-explorer.md`.
-2. Launch 2-3 code-explorer agents in parallel. Each agent should follow `references/code-explorer.md` and:
+1. Launch 2-3 code-explorer agents in parallel. Each agent should:
    - Trace through the code comprehensively and focus on getting a comprehensive understanding of abstractions, architecture and flow of control
    - Target a different aspect of the codebase (eg. similar features, high level understanding, architectural understanding, user experience, etc)
    - Include a list of 5-10 key files to read
@@ -61,8 +50,8 @@ Initial request: $ARGUMENTS
    - "Analyze the current implementation of [existing feature/area], tracing through the code comprehensively"
    - "Identify UI patterns, testing approaches, or extension points relevant to [feature]"
 
-3. Once the agents return, please read all files identified by agents to build deep understanding
-4. Present comprehensive summary of findings and patterns discovered
+2. Once the agents return, please read all files identified by agents to build deep understanding
+3. Present comprehensive summary of findings and patterns discovered
 
 ---
 
@@ -87,11 +76,10 @@ If the user says "whatever you think is best", provide your recommendation and g
 **Goal**: Design multiple implementation approaches with different trade-offs
 
 **Actions**:
-1. Read `references/code-architect.md`.
-2. Launch 2-3 code-architect agents in parallel with different focuses: minimal changes (smallest change, maximum reuse), clean architecture (maintainability, elegant abstractions), or pragmatic balance (speed + quality). Each agent should follow `references/code-architect.md`.
-3. Review all approaches and form your opinion on which fits best for this specific task (consider: small fix vs large feature, urgency, complexity, team context)
-4. Present to user: brief summary of each approach, trade-offs comparison, **your recommendation with reasoning**, concrete implementation differences
-5. **Ask user which approach they prefer**
+1. Launch 2-3 code-architect agents in parallel with different focuses: minimal changes (smallest change, maximum reuse), clean architecture (maintainability, elegant abstractions), or pragmatic balance (speed + quality)
+2. Review all approaches and form your opinion on which fits best for this specific task (consider: small fix vs large feature, urgency, complexity, team context)
+3. Present to user: brief summary of each approach, trade-offs comparison, **your recommendation with reasoning**, concrete implementation differences
+4. **Ask user which approach they prefer**
 
 ---
 
@@ -116,11 +104,10 @@ If the user says "whatever you think is best", provide your recommendation and g
 **Goal**: Ensure code is simple, DRY, elegant, easy to read, and functionally correct
 
 **Actions**:
-1. Read `references/code-reviewer.md`.
-2. Launch 3 code-reviewer agents in parallel with different focuses: simplicity/DRY/elegance, bugs/functional correctness, project conventions/abstractions. Each agent should follow `references/code-reviewer.md`.
-3. Consolidate findings and identify highest severity issues that you recommend fixing
-4. **Present findings to user and ask what they want to do** (fix now, fix later, or proceed as-is)
-5. Address issues based on user decision
+1. Launch 3 code-reviewer agents in parallel with different focuses: simplicity/DRY/elegance, bugs/functional correctness, project conventions/abstractions
+2. Consolidate findings and identify highest severity issues that you recommend fixing
+3. **Present findings to user and ask what they want to do** (fix now, fix later, or proceed as-is)
+4. Address issues based on user decision
 
 ---
 
